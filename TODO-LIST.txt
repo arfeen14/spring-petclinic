@@ -14,3 +14,6 @@ Notes:
 - Test eerst of hij lokaal werkt door alles eerst handmatig te doen.
 - oke ik probeer de jar file te runnen en hij werkt niet omdat localhost 8080 bezet is(logisch dat is mijn jenkins)
 - lokaal werkend gelkregen en kan nu door naar de volgende stap.(moest in application.properties het gewoon zetten naar port 9090)
+- heb het geconnect en de pipeline werkt nu.
+- ik ga nu checken of er testen zijn en dan ga ip op basis daarvan de pipeline draaien.(er zijn testen ja en maven die kan ik allemaal in de pipeline testen)
+    -Nu ga ik werken met de Jenkinspipeline en ga je echt leren waarom en hoe je bepaalde dingen moet doen.  
