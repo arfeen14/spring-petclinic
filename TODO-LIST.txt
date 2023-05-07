@@ -1,0 +1,16 @@
+1. Maak een jenkins pipeline die de test runt.
+2. Zet hem dan in een container en run daar de test.(Doe hierover meer onderzoek over)
+3. Probeer het dan met een agent pool te runnen, zodat we weten hoe je het daarmee kan fixen in jenkins.
+4  Zorg dat je Sonarqube erop runt.
+
+
+Nu proberen over te stappen naar Azure:
+1. Probeer de Jenkins code te migreren naar azure Yaml code
+
+
+
+
+Notes:
+- Test eerst of hij lokaal werkt door alles eerst handmatig te doen.
+- oke ik probeer de jar file te runnen en hij werkt niet omdat localhost 8080 bezet is(logisch dat is mijn jenkins)
+- lokaal werkend gelkregen en kan nu door naar de volgende stap.(moest in application.properties het gewoon zetten naar port 9090)
