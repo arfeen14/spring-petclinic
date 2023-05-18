@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+     environment {
+        PATH = "${tool 'Maven'}/bin:${env.PATH}"
+    }
 
     stages {
         stage('Build') {
@@ -10,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                //you have to install the required dependencies to run the test aka maven and misschien gradle.
                   sh 'mvn test'
             }
         }
