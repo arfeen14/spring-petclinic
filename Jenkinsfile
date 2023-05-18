@@ -1,3 +1,7 @@
+tools {
+maven "Maven"
+}
+
 pipeline {
     agent any
 
@@ -11,7 +15,11 @@ pipeline {
             steps {
                 echo 'Testing..'
                 //you have to install the required dependencies to run the test aka maven and misschien gradle.
-                  sh 'mvn test'
+                //cause I dont want to install maven in the docker container, it is to much hassle i try a workaround.
+                  withMaven(maven "Maven") {
+                      sh 'mvn test'      
+                  }
+                  
             }
         }
         stage('Deploy') {
