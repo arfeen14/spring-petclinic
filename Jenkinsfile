@@ -4,7 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                 
+                // Compile the source code
+                sh 'gradle build'
+                // Wat ik denk ik hier wil hebben is code coverage aka sonarqube
+                 withSonarQubeEnv() { // Will pick the global server connection you have configured
+      sh './gradlew sonarqube'
+    }
             }
         }
         stage('Test') {
