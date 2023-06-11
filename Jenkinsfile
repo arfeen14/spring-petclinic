@@ -11,13 +11,13 @@ pipeline {
             }
         }
 
-         stage('SonarQube analysis') {
+         stage('SonarQube Analysis') {
             steps {
-                    withSonarQubeEnv(installationName: 'My SonarQube Server') { // Will pick the global server connection you have configured
-                    sh './gradlew sonarqube'
+                // Run SonarQube analysis using Gradle
+                withSonarQubeEnv('SonarQube Server') {
+                    sh "./gradlew sonarqube -Dsonar.login=${squ_0de2be9f13368a1377851378d0947d8409d971f6}"
+                }
             }
-            }
-                
         }
         stage('Test') {
             steps {
