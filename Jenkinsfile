@@ -10,15 +10,6 @@ pipeline {
                 // Wat ik denk ik hier wil hebben is code coverage aka sonarqube
             }
         }
-
-         stage('SonarQube Analysis') {
-            steps {
-                // Run SonarQube analysis using Gradle
-                withSonarQubeEnv('SonarQube Server') {
-                    sh "./gradlew sonarqube -Dsonar.login=${squ_0de2be9f13368a1377851378d0947d8409d971f6}"
-                }
-            }
-        }
         stage('Test') {
             steps {
                 echo 'Testing..'
