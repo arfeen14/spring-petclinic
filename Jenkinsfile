@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "gradle build"
+                sh "/./mvnw clean"
             }
         }
         stage('Test') {
