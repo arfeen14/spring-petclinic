@@ -7,7 +7,7 @@ pipeline {
                 echo 'Eerst de oude build verwijderen.'
                 sh '''
                 ./mvnw clean;
-                docker-compose down
+                docker compose down
                 docker rmi $(docker images | grep -E "eclipse-temurin|postgres")
                 ./mvnw package
                 '''
