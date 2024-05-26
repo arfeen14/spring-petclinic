@@ -2,6 +2,7 @@
 services:
   app:
     image: eclipse-temurin:17-jdk-alpine
+    container_name: application
     restart: always
     build:
       context: .
