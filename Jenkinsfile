@@ -4,8 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh "./mvnw clean"
+                echo 'Eerst de oude build verwijderen.'
+                sh """
+                ./mvnw clean;
+                ./mvnw package
+                """
+
+
             }
         }
         stage('Test') {

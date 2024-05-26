@@ -16,4 +16,24 @@ Notes:
 - lokaal werkend gelkregen en kan nu door naar de volgende stap.(moest in application.properties het gewoon zetten naar port 9090)
 - heb het geconnect en de pipeline werkt nu.
 - ik ga nu checken of er testen zijn en dan ga ip op basis daarvan de pipeline draaien.(er zijn testen ja en maven die kan ik allemaal in de pipeline testen)
-    -Nu ga ik werken met de Jenkinspipeline en ga je echt leren waarom en hoe je bepaalde dingen moet doen.  
+    -Nu ga ik werken met de Jenkinspipeline en ga je echt leren waarom en hoe je bepaalde dingen moet doen.
+
+commando voor database:
+--the command to make the user.sql work: mysql -u root -p petclinic < docker-entrypoint-initdb.d/user.sql
+-- to check if it worked: SHOW GRANTS FOR 'petclinic'@'%';
+
+
+voor mysql deed het niet helemaal teerwijl ik hetzelfde heb gedaan voor postgress dus gaan we postgres gebruiken (is ook een goede want dat wordt gebruikt in werk)
+
+heb het werkend gekregen door de postgress in een container te zetten en de app gelijk te runne.
+
+
+ik denk dat het mogelijk ligt dat de db geen ipv6 port open heeft dus dat moet ik dan gaan checken
+https://stackoverflow.com/questions/31249112/allow-docker-container-to-connect-to-a-local-host-postgres-database
+
+de Database en applicatie werkt alleen hij update niet live, weet ook niet od dat de bedoeling is maar hij geeft wel een error.
+
+database werkt en de app ook dus nu kunne we hem automatiseren:
+- eerst de build stap en test stap werkend krijgen.
+
+de test werken niet helemaal.

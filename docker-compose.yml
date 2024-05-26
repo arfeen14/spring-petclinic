@@ -1,23 +1,26 @@
-version: "2.2"
-
+##image maken voor de application zelf
 services:
-  mysql:
-    image: mysql:8.0
+  app:
+    image: eclipse-temurin:17-jdk-alpine
+    restart: always
+    build:
+      context: .
     ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
-      - MYSQL_USER=petclinic
-      - MYSQL_PASSWORD=petclinic
-      - MYSQL_DATABASE=petclinic
-    volumes:
-      - "./conf.d:/etc/mysql/conf.d:ro"
-  postgres:
+      - 9090:9090
+    working_dir: /spring-petclinic
+##    volumes:
+##      - /tmp
+
+#image maken voor de database zelf (heb de oude databse dingen hier verwijderd, kan gebruiken als het helemaal niet lukt.)
+  db:
     image: postgres:15.2
+    container_name: postgres
+    restart: always
     ports:
       - "5432:5432"
+    volumes:
+      - "./src/main/resources/db/postgres/:/docker-entrypoint-initdb.d/"
     environment:
-      - POSTGRES_PASSWORD=petclinic
-      - POSTGRES_USER=petclinic
-      - POSTGRES_DB=petclinic
+      POSTGRES_DB: jdbc:postgresql://postgres:5432/petclinic
+      POSTGRES_USER: petclinic
+      POSTGRES_PASSWORD: petclinic
